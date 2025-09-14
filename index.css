@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Anuphan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: medium;
+
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+select {
+  border: 1px solid black;
+  outline: none;
+
+  font-family: "Anuphan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: medium;
+
+  background: transparent;
+}
+
+.row {
+  display: flex;
+}
+
+.block {
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.bold {
+  font-weight: 600;
+  font-size: large;
+}
+
+.green {
+  background: #d8f5a2;
+}
+
+.grey {
+  color: #747474;
+  font-weight: bold;
+  font-size: large;
+}
+
+#head {
+  font-size: x-large;
+  font-weight: 800;
+  padding: 8px 12px;
+  background: #f3f3f3;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 20px;
+}
+
+#img_container {
+  width: 50%;
+  transform: translateX(50%);
+  padding-bottom: 10px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.number_w {
+  width: calc(50% - 16px);
+}
+
+#status_1, #status_2 {
+  text-align: center;
+  font-weight: 600;
+  font-size: larger;
+  padding: 4px 0;
+}
