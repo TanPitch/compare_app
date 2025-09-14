@@ -84,7 +84,7 @@ select {
   width: calc(50% - 16px);
 }
 
-#status_1, #status_2 {
+#result_1, #result_2 {
   text-align: center;
   font-weight: 600;
   font-size: larger;
