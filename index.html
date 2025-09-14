@@ -5,10 +5,10 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f3f3f3">
   <meta name="apple-mobile-web-app-orientation" content="portrait">
   <meta name="application-name" content="อันไหนถูกกว่า?">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f3f3f3">
   <link rel="icon" href="./img/icon.png" type="image/x-icon">
   <link rel="apple-touch-icon" href="./img/icon.png">
   <link rel="apple-touch-icon" sizes="76x76" href="./img/icon.png">
@@ -25,7 +25,7 @@
 <body>
   <div id="head">อันไหนถูกกว่า?</div>
   <div class="row">
-    <div class="block">
+    <div class="block main_block">
       <div class="bold" style="align-self: baseline;">ของทางซ้าย</div>
       <div>ปริมาณ x จำนวน</div>
       <div class="row" style="gap: 4px;">
@@ -33,20 +33,20 @@
         <input class="number_w" type="number" pattern="\d*" />
       </div>
       <select style="width: 100%;">
-        <option>กรัม</option>
-        <option>กิโลกรัม</option>
-        <option>มิลลิกรัม</option>
-        <option>ไมโครกรัม</option>
-        <option>ออนซ์</option>
-        <option>ปอนด์</option>
-        <option>ลิตร</option>
-        <option>มิลลิลิตร</option>
-        <option>ซีซี</option>
+        <option value="1">กรัม</option>
+        <option value="0.001">กิโลกรัม</option>
+        <option value="1000">มิลลิกรัม</option>
+        <option value="1000000">ไมโครกรัม</option>
+        <option value="0.03527">ออนซ์</option>
+        <option value="0.0022">ปอนด์</option>
+        <option value="0.001">ลิตร</option>
+        <option value="1">มิลลิลิตร</option>
+        <option value="1">ซีซี</option>
       </select>
       <div>ราคา</div>
       <input type="number" pattern="\d*" />
     </div>
-    <div class="block">
+    <div class="block main_block">
       <div class="bold" style="align-self: flex-end;">ของทางขวา</div>
       <div>ปริมาณ x จำนวน</div>
       <div class="row" style="gap: 4px;">
@@ -54,23 +54,23 @@
         <input class="number_w" type="number" pattern="\d*" />
       </div>
       <select style="width: 100%;">
-        <option>กรัม</option>
-        <option>กิโลกรัม</option>
-        <option>มิลลิกรัม</option>
-        <option>ไมโครกรัม</option>
-        <option>ออนซ์</option>
-        <option>ปอนด์</option>
-        <option>ลิตร</option>
-        <option>มิลลิลิตร</option>
-        <option>ซีซี</option>
+        <option value="1">กรัม</option>
+        <option value="0.001">กิโลกรัม</option>
+        <option value="1000">มิลลิกรัม</option>
+        <option value="1000000">ไมโครกรัม</option>
+        <option value="0.03527">ออนซ์</option>
+        <option value="0.0022">ปอนด์</option>
+        <option value="0.001">ลิตร</option>
+        <option value="1">มิลลิลิตร</option>
+        <option value="1">ซีซี</option>
       </select>
       <div>ราคา</div>
-      <input>
+      <input type="number" pattern="\d*" />
     </div>
   </div>
-  <div id="status_1">ระบุปริมาณ, หน่วย และราคา</div>
+  <div id="result_1">ระบุปริมาณ, หน่วย และราคา</div>
   <div id="img_container"><img src="./img/001.jpg"></div>
-  <div id="status_2">จิ้มแก้มเพื่อคำนวน</div>
+  <div id="result_2">จิ้มแก้มเพื่อคำนวน</div>
   <div class="row">
     <div id="detail_1" class="block grey"></div>
     <div id="detail_2" class="block grey"></div>
