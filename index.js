@@ -7,13 +7,16 @@ const DOMS = {
     result_2: document.querySelector("#result_2"),
     detail_1: document.querySelector("#detail_1"),
     detail_2: document.querySelector("#detail_2"),
+    dark: document.querySelector("#dark_mode"),
 };
+
+var light = true;
 
 // reset
 const reset = () => {
     DOMS.result_1.textContent = "ระบุปริมาณ, หน่วย และราคา";
     DOMS.result_2.textContent = "จิ้มแก้มเพื่อคำนวน";
-    DOMS.img.src = "./img/001.jpg";
+    DOMS.img.src = img("001");
     DOMS.img.style.transform = "";
 
     DOMS.detail_1.textContent = ``;
@@ -39,7 +42,7 @@ DOMS.img_container.addEventListener("click", () => {
     if (![...DOMS.numbers].every((el) => el.value !== "")) {
         DOMS.result_1.textContent = "พังแล้ว";
         DOMS.result_2.textContent = "ข้อมูลไม่ครบ คำนวนไม่ได้";
-        DOMS.img.src = "./img/004.jpg";
+        DOMS.img.src = img("004");
         return;
     }
 
@@ -54,15 +57,15 @@ DOMS.img_container.addEventListener("click", () => {
     const result_1 = () => {
         const blocks = document.querySelectorAll(".main_block");
         if (price_A == price_B) {
-            DOMS.img.src = "./img/005.jpg";
+            DOMS.img.src = img("005");
             blocks.forEach((el) => el.classList.add("green"));
             return "ราคาเท่ากัน";
         } else if (price_A > price_B) {
-            DOMS.img.src = "./img/003.jpg";
+            DOMS.img.src = img("003");
             blocks[1].classList.add("green");
             return "ขวาถูกกว่า !";
         } else if (price_A < price_B) {
-            DOMS.img.src = "./img/003.jpg";
+            DOMS.img.src = img("003");
             DOMS.img.style.transform = "scaleX(-1)";
             blocks[0].classList.add("green");
             return "ซ้ายถูกกว่า !";
@@ -76,3 +79,19 @@ DOMS.img_container.addEventListener("click", () => {
     };
     DOMS.result_2.textContent = result_2();
 });
+
+// dark mode
+DOMS.dark.addEventListener("click", () => {
+    light = !light;
+    document.body.classList.toggle("dark");
+
+    // update all imgs
+    document.querySelectorAll("img").forEach((im) => {
+        const imgNo = im.src.split("/")[4].split(".")[0].split("-")[0];
+        im.src = img(imgNo);
+    });
+});
+
+function img(num) {
+    return `./img/${num}${light ? "" : "-dark"}.jpg`;
+}
