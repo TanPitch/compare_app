@@ -90,6 +90,25 @@ DOMS.dark.addEventListener("click", () => {
         const imgNo = im.src.split("/")[4].split(".")[0].split("-")[0];
         im.src = img(imgNo);
     });
+
+    // store theme
+    localStorage.setItem("theme", light ? "light" : "dark");
+});
+window.addEventListener("load", () => {
+    const getTheme = localStorage.getItem("theme");
+    if (!getTheme) {
+        localStorage.setItem("theme", light ? "light" : "dark");
+        return;
+    }
+
+    light = getTheme == "light";
+    if (!light) {
+        document.body.classList.toggle("dark");
+        document.querySelectorAll("img").forEach((im) => {
+            const imgNo = im.src.split("/")[4].split(".")[0].split("-")[0];
+            im.src = img(imgNo);
+        });
+    }
 });
 
 function img(num) {
