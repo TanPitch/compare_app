@@ -12,6 +12,10 @@ const DOMS = {
 
 var light = true;
 
+const twoDec = (num) => {
+    return Math.round(num * 100) / 100;
+};
+
 // reset
 const reset = () => {
     DOMS.result_1.textContent = "ระบุปริมาณ, หน่วย และราคา";
@@ -50,12 +54,12 @@ DOMS.img_container.addEventListener("click", () => {
     }
 
     const price_A =
-        DOMS.numbers[2].value / (DOMS.numbers[0].value * DOMS.numbers[1].value / DOMS.selects[0].value);
+        DOMS.numbers[2].value / ((DOMS.numbers[0].value * DOMS.numbers[1].value) / DOMS.selects[0].value);
     const price_B =
-        DOMS.numbers[5].value / (DOMS.numbers[3].value * DOMS.numbers[4].value / DOMS.selects[1].value);
+        DOMS.numbers[5].value / ((DOMS.numbers[3].value * DOMS.numbers[4].value) / DOMS.selects[1].value);
 
-    DOMS.detail_1.textContent = `${price_A} ต่อกรัม`;
-    DOMS.detail_2.textContent = `${price_B} ต่อกรัม`;
+    DOMS.detail_1.textContent = `${twoDec(price_A)} ต่อกรัม`;
+    DOMS.detail_2.textContent = `${twoDec(price_B)} ต่อกรัม`;
 
     const result_1 = () => {
         const blocks = document.querySelectorAll(".main_block");
@@ -79,7 +83,7 @@ DOMS.img_container.addEventListener("click", () => {
     const result_2 = () => {
         if (price_A == price_B) return "ซื้ออันไหนก็ได้";
         const percent = 100 - (100 * Math.min(price_A, price_B)) / Math.max(price_A, price_B);
-        return `ราคาถูกกว่า ${Math.round(percent * 100) / 100} %`;
+        return `ราคาถูกกว่า ${twoDec(percent)} %`;
     };
     DOMS.result_2.textContent = result_2();
 });
