@@ -50,9 +50,9 @@ DOMS.img_container.addEventListener("click", () => {
     }
 
     const price_A =
-        (DOMS.selects[0].value * DOMS.numbers[0].value * DOMS.numbers[2].value) / DOMS.numbers[1].value;
+        DOMS.numbers[2].value / (DOMS.numbers[0].value * DOMS.numbers[1].value / DOMS.selects[0].value);
     const price_B =
-        (DOMS.selects[1].value * DOMS.numbers[3].value * DOMS.numbers[5].value) / DOMS.numbers[4].value;
+        DOMS.numbers[5].value / (DOMS.numbers[3].value * DOMS.numbers[4].value / DOMS.selects[1].value);
 
     DOMS.detail_1.textContent = `${price_A} ต่อกรัม`;
     DOMS.detail_2.textContent = `${price_B} ต่อกรัม`;
@@ -78,7 +78,8 @@ DOMS.img_container.addEventListener("click", () => {
 
     const result_2 = () => {
         if (price_A == price_B) return "ซื้ออันไหนก็ได้";
-        return `ราคาถูกกว่า ${100 - (100 * Math.min(price_A, price_B)) / Math.max(price_A, price_B)} %`;
+        const percent = 100 - (100 * Math.min(price_A, price_B)) / Math.max(price_A, price_B);
+        return `ราคาถูกกว่า ${Math.round(percent * 100) / 100} %`;
     };
     DOMS.result_2.textContent = result_2();
 });
