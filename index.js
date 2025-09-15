@@ -39,6 +39,9 @@ const reset = () => {
 
 // do calculated
 DOMS.img_container.addEventListener("click", () => {
+    if (DOMS.numbers[1].value === "") DOMS.numbers[1].value = 1;
+    if (DOMS.numbers[4].value === "") DOMS.numbers[4].value = 1;
+
     if (![...DOMS.numbers].every((el) => el.value !== "")) {
         DOMS.result_1.textContent = "พังแล้ว";
         DOMS.result_2.textContent = "ข้อมูลไม่ครบ คำนวนไม่ได้";
